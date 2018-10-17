@@ -14,22 +14,33 @@
    Player
   </div>
   <div id="yourLive" class="lifebar">
-  {{you}}
+  {{player[0]}}
   </div>
   <div class="lifebartitle">
   Monster
   </div>
   <div id="monsterLife" class="lifebar">
-  {{monster}}
+  {{player[1]}}
   </div>
 </div>
 
 <br>
+
+<div class="gameDialogue">
+  <div v-show="playerAlive(0) && !playerAlive(1)">You win congratulations</div>
+  <div v-show="!playerAlive(0) && playerAlive(1)">Game Over the Monster Wins...</div>
+  <div v-show="!playerAlive(0) && !playerAlive(1)">You both died nobody wins</div>
+
+</div>
+
+<br>
   <div class="gameMenu" v-show="showMenu">
-    <div class="gameButton attack" @click="reportActivity(0)"> ATTACK </div>
-    <div class="gameButton sattack" @click="reportActivity(1)" > SPECIAL ATTACK </div>
-    <div  class="gameButton heal" @click="reportActivity(2)"> HEAL </div>
-    <div  class="gameButton giveup" @click="showGameMenu();reportActivity(3);"> GIVE UP </div>
+    <div class="gameButton attack" @click="attack(0),attack(1),reportActivity(0)"> ATTACK </div>
+    <div class="gameButton sattack" @click="specialAttack(0),specialAttack(1),reportActivity(1)" > SPECIAL ATTACK </div>
+    <div  class="gameButton heal" @click="heal(0),attack(0),reportActivity(2)"> HEAL </div>
+    <div  v-show="playerAlive(0)&&playerAlive(1)" class="gameButton giveup" @click="showGameMenu();reportActivity(3);"> GIVE UP </div>
+    <div  v-show="!playerAlive(0)||!playerAlive(1)" class="gameButton restart" @click="clearActivities();reportActivity(4);"> RESTART </div>
+
   </div>
 
   <div class="gameStartMenu">
