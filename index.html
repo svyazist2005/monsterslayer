@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Monster Fighter Game</title>
+    <link rel = "stylesheet" type = "text/css" href = "mycss.css" />
+    <script src="vue.js"></script>
+  </head>
+  <body>
+  <div id="app">
+
+<div class="lifebars">
+  <div class="lifebartitle">
+   Player
+  </div>
+  <div id="yourLive" class="lifebar">
+  {{you}}
+  </div>
+  <div class="lifebartitle">
+  Monster
+  </div>
+  <div id="monsterLife" class="lifebar">
+  {{monster}}
+  </div>
+</div>
+
+<br>
+  <div class="gameMenu" v-show="showMenu">
+    <div class="gameButton attack"> ATTACK </div>
+    <div class="gameButton sattack" > SPECIAL ATTACK </div>
+    <div  class="gameButton heal"> HEAL </div>
+    <div  class="gameButton giveup" @click="showGameMenu"> GIVE UP </div>
+  </div>
+
+  <div class="gameStartMenu">
+    <div class="gameButton newgame" @click="showGameMenu" v-show="!showMenu"> START NEW GAME</div>
+  </div>
+
+  </div>
+  <script src="myjava.js">
+  </script>
+  </body>
+</html>

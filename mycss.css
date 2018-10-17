@@ -1,0 +1,52 @@
+.lifebar{
+display:inline-block;
+}
+
+.gameButton{
+font-size: 12px;
+text-align: center;
+color: white;
+padding:2px;
+width: 70px;
+background-color: green;
+margin: 10px;
+cursor: pointer;
+}
+
+.gameMenu,.gameStartMenu{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.attack{
+  background-color: red;
+}
+
+.sattack{
+  background-color: pink;
+}
+
+.heal{
+  background-color: blue;
+}
+
+.giveup{
+  background-color: brown;}
+
+.lifebar{
+  width: 300px;
+  height: 20px;
+  color: yellow;
+  text-align: center;
+  background-color: green;
+  margin:10px;
+}
+
+.lifebars{
+display: flex;
+flex-direction:row;
+align-items: center;
+justify-content: center;
+
+}
