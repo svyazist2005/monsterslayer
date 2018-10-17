@@ -35,16 +35,16 @@
 
 <br>
   <div class="gameMenu" v-show="showMenu">
-    <div class="gameButton attack" @click="attack(0),attack(1),reportActivity(0)"> ATTACK </div>
-    <div class="gameButton sattack" @click="specialAttack(0),specialAttack(1),reportActivity(1)" > SPECIAL ATTACK </div>
-    <div  class="gameButton heal" @click="heal(0),attack(0),reportActivity(2)"> HEAL </div>
-    <div  v-show="playerAlive(0)&&playerAlive(1)" class="gameButton giveup" @click="showGameMenu();reportActivity(3);"> GIVE UP </div>
-    <div  v-show="!playerAlive(0)||!playerAlive(1)" class="gameButton restart" @click="clearActivities();reportActivity(4);"> RESTART </div>
+    <div class="gameButton attack" @click="attack(0),attack(1),reportActivity(0,0),reportActivity(1,0)"> ATTACK </div>
+    <div class="gameButton sattack" @click="specialAttack(1),specialAttack(0),reportActivity(0,1),reportActivity(1,1)" > SPECIAL ATTACK </div>
+    <div  class="gameButton heal" @click="heal(0),attack(0),reportActivity(0,2),reportActivity(1,0)"> HEAL </div>
+    <div  v-show="playerAlive(0)&&playerAlive(1)" class="gameButton giveup" @click="showGameMenu();reportActivity(0,3);"> GIVE UP </div>
+    <div  v-show="!playerAlive(0)||!playerAlive(1)" class="gameButton restart" @click="reportActivity(0,4);clearActivities();"> RESTART </div>
 
   </div>
 
   <div class="gameStartMenu">
-    <div class="gameButton newgame" @click="showGameMenu();clearActivities();reportActivity(4);" v-show="!showMenu"> START NEW GAME</div>
+    <div class="gameButton newgame" @click="showGameMenu();reportActivity(5);clearActivities();" v-show="!showMenu"> START NEW GAME</div>
   </div>
 
   <div class="gameHistory">
