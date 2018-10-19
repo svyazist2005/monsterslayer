@@ -51,6 +51,9 @@ cursor: pointer;
 .giveup{
   background-color: brown;}
 
+.reset{
+    background-color: black;}
+
 .lifebar{
   font-family: 'Text Me One', sans-serif;
 

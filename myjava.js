@@ -5,7 +5,7 @@ new Vue({
   {player:[100,100],
   showMenu:false,
   history:[],
-  activities:["attacked","special attacked ","healed himself","gave up","restarted game","started game"],
+  activities:["attacked","special attacked ","healed himself","gave up","restarted game","started game","reseted game"],
   players:["Player", "Monster"],
   damage:[0,0],
   wins:[0,0]
@@ -22,7 +22,7 @@ new Vue({
     },
 
     reportActivity:function(player,action){
-      if(action==4|action==3|action==5){
+      if(action==4|action==3|action==5|action==6){
       this.history.push(this.players[player]+" "+this.activities[action]);
       }
       else {
@@ -33,6 +33,13 @@ new Vue({
       this.history=[];
       this.player=[100,100];
       this.damage=[0,0];
+    },
+
+    resetActivities:function(){
+      this.history=[];
+      this.player=[100,100];
+      this.damage=[0,0];
+      this.wins=[0,0];
     },
 
     attack:function(player){
