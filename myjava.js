@@ -40,8 +40,8 @@ new Vue({
     },
 
     heal:function(player){
-      this.damage[player]=-Math.ceil(Math.random()*10);
-      this.player[player]-=this.damage[player]
+      this.damage[player]=Math.ceil(Math.random()*10);
+      this.player[player]+=this.damage[player]
       console.log(this.damage[player]);
     },
 
