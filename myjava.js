@@ -42,14 +42,12 @@ new Vue({
     heal:function(player){
       this.damage[player]=Math.ceil(Math.random()*10);
       this.player[player]+=this.damage[player]
-      console.log(this.damage[player]);
     },
 
 
     specialAttack:function(player){
       this.damage[player]=Math.ceil(Math.random()*10)*2;
       this.player[player]-=this.damage[player]
-      console.log(this.damage[player]);
     },
 
     playerAlive:function(player){
@@ -58,6 +56,23 @@ new Vue({
 
     lifeBar:function(player){
       return {width:this.player[player]*3+'px'}
+    },
+
+    historyBar:function(el){
+
+      var style={};
+      console.log(el);
+      if(el.includes("special attacked"))
+      {style={backgroundColor:'pink'};}
+      else if(el.includes("attacked"))
+      {style={backgroundColor:'red'};}
+      else if(el.includes("healed himself"))
+      {style={backgroundColor:'blue'};}
+      else if(el.includes("gave up"))
+      {style={backgroundColor:'brown'};}
+      else if(el.includes("restarted game"))
+      {style={backgroundColor:'green'};}
+      return style;
     }
 
   }
