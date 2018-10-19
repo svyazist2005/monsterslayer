@@ -20,7 +20,15 @@
   </div>
 
   <div class="lifebartitle">
+  {{wins[0]}} wins
+  </div>
+
+  <div class="lifebartitle">
   Monster
+  </div>
+
+  <div class="lifebartitle">
+  {{wins[1]}} wins
   </div>
 
 
@@ -39,6 +47,7 @@
 <br>
 
 <div class="gameDialogue">
+  <div :key="setWinner()"></div>
   <div class="alert alert-success" v-show="playerAlive(0) && !playerAlive(1)">You win congratulations!!!</div>
   <div class="alert alert-danger" v-show="!playerAlive(0) && playerAlive(1)">Game Over the Monster Wins...</div>
   <div class="alert alert-warning" v-show="!playerAlive(0) && !playerAlive(1)">You both died nobody wins!!!</div>

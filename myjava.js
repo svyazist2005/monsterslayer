@@ -7,7 +7,8 @@ new Vue({
   history:[],
   activities:["attacked","special attacked ","healed himself","gave up","restarted game","started game"],
   players:["Player", "Monster"],
-  damage:[0,0]
+  damage:[0,0],
+  wins:[0,0]
 },
 
   methods:{
@@ -73,8 +74,20 @@ new Vue({
       else if(el.includes("restarted game"))
       {style={backgroundColor:'green'};}
       return style;
+    },
+
+    setWinner:function()
+    { console.log("watch");
+      if(this.playerAlive(0)&&!this.playerAlive(1))
+      {this.wins[0]+=1}
+      else if(!this.playerAlive(0)&&this.playerAlive(1))
+      {this.wins[1]+=1}
     }
 
   }
+
+
+
+
 
 })
