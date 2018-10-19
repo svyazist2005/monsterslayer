@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>Monster Fighter Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel = "stylesheet" type = "text/css" href = "mycss.css" />
+
     <script src="vue.js"></script>
   </head>
   <body>
@@ -43,16 +45,16 @@
 
 <br>
   <div class="gameMenu" v-show="showMenu">
-    <div class="gameButton attack" @click="attack(0),reportActivity(0,0),attack(1),reportActivity(1,0)"> ATTACK </div>
-    <div class="gameButton sattack" @click="specialAttack(1),reportActivity(1,1),attack(0),reportActivity(0,0),attack(0),reportActivity(0,0)" > SPECIAL ATTACK </div>
-    <div  class="gameButton heal" @click="heal(0),reportActivity(0,2),attack(0),reportActivity(0,0)"> HEAL </div>
-    <div  v-show="playerAlive(0)&&playerAlive(1)" class="gameButton giveup" @click="showGameMenu();reportActivity(0,3);"> GIVE UP </div>
-    <div  v-show="!playerAlive(0)||!playerAlive(1)" class="gameButton restart" @click="reportActivity(0,4);clearActivities();"> RESTART </div>
+    <button class="btn btn-secondary gameButton attack" @click="attack(0),reportActivity(0,0),attack(1),reportActivity(1,0)"> ATTACK </button>
+    <button class="btn btn-secondary gameButton sattack" @click="specialAttack(1),reportActivity(1,1),attack(0),reportActivity(0,0),attack(0),reportActivity(0,0)" > SPECIAL ATTACK </button>
+    <button  class="btn btn-secondary gameButton heal" @click="heal(0),reportActivity(0,2),attack(0),reportActivity(0,0)"> HEAL </button>
+    <button  v-show="playerAlive(0)&&playerAlive(1)" class="btn-secondary btn gameButton giveup" @click="showGameMenu();reportActivity(0,3);"> GIVE UP </button>
+    <button  v-show="!playerAlive(0)||!playerAlive(1)" class="btn-secondary btn gameButton restart" @click="reportActivity(0,4);clearActivities();"> RESTART </button>
 
   </div>
 
   <div class="gameStartMenu">
-    <div class="gameButton newgame" @click="showGameMenu();reportActivity(5);clearActivities();" v-show="!showMenu"> START NEW GAME</div>
+    <button class="btn btn-secondary btn-lg btn-block gameButton newgame" @click="showGameMenu();reportActivity(5);clearActivities();" v-show="!showMenu"> START NEW GAME</button>
   </div>
 
   <div class="gameHistory">
