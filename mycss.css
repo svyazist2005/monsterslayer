@@ -36,6 +36,12 @@ cursor: pointer;
   justify-content: center;
 }
 
+.startbutton{
+  font-size: 25px;
+  width: 170px;
+  height: 50px;
+
+}
 .attack{
   background-color: red;
 }
