@@ -22,13 +22,19 @@ new Vue({
     },
 
     reportActivity:function(player,action){
-      if(action==4|action==3|action==5|action==6){
+
+      if(action==4|action==5|action==6){
+      this.history.push(this.players[player]+" "+this.activities[action]);
+      }
+
+      else if(action==3){
       this.history.push(this.players[player]+" "+this.activities[action]);
       }
       else {
         this.history.push(this.players[player]+" was "+this.activities[action]+" on points "+this.damage[player]);
-      }
+    }
     },
+
     clearActivities:function(){
       this.history=[];
       this.player=[100,100];
@@ -44,22 +50,25 @@ new Vue({
 
     attack:function(player){
       this.damage[player]=Math.ceil(Math.random()*10);
-      this.player[player]-=this.damage[player]
+      this.player[player]-=this.damage[player];
     },
 
     heal:function(player){
       this.damage[player]=Math.ceil(Math.random()*10);
-      this.player[player]+=this.damage[player]
+      this.player[player]+=this.damage[player];
     },
-
 
     specialAttack:function(player){
       this.damage[player]=Math.ceil(Math.random()*10)*2;
-      this.player[player]-=this.damage[player]
+      this.player[player]-=this.damage[player];
     },
 
     playerAlive:function(player){
       return this.player[player]>0;
+    },
+
+    allAlive:function(){
+      return this.playerAlive(0)&&this.playerAlive(1);
     },
 
     lifeBar:function(player){
@@ -84,11 +93,11 @@ new Vue({
     },
 
     setWinner:function()
-    { console.log("watch");
+    {
       if(this.playerAlive(0)&&!this.playerAlive(1))
-      {this.wins[0]+=1}
+      {this.wins[0]+=1;}
       else if(!this.playerAlive(0)&&this.playerAlive(1))
-      {this.wins[1]+=1}
+      {this.wins[1]+=1;}
     }
 
   }
