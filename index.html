@@ -26,20 +26,20 @@
 
 
 <div class="lifebars">
-  <div id="yourLive" class="lifebar" :style="lifeBar(0)" >
+  <span id="yourLive" class="badge badge-primary lifebar" :style="lifeBar(0)" >
   {{player[0]}}
-  </div>
-  <div id="monsterLife" class="lifebar" :style="lifeBar(1)">
+</span>
+  <span id="monsterLife" class="badge badge-primary lifebar" :style="lifeBar(1)">
   {{player[1]}}
-  </div>
+</span>
 </div>
 
 <br>
 
 <div class="gameDialogue">
-  <div v-show="playerAlive(0) && !playerAlive(1)">You win congratulations</div>
-  <div v-show="!playerAlive(0) && playerAlive(1)">Game Over the Monster Wins...</div>
-  <div v-show="!playerAlive(0) && !playerAlive(1)">You both died nobody wins</div>
+  <div class="alert alert-success" v-show="playerAlive(0) && !playerAlive(1)">You win congratulations!!!</div>
+  <div class="alert alert-danger" v-show="!playerAlive(0) && playerAlive(1)">Game Over the Monster Wins...</div>
+  <div class="alert alert-warning" v-show="!playerAlive(0) && !playerAlive(1)">You both died nobody wins!!!</div>
 
 </div>
 
