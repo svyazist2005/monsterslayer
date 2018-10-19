@@ -9,15 +9,23 @@
   <body>
   <div id="app">
 
-<div class="lifebars">
+<div class="lifebartitles">
+
   <div class="lifebartitle">
    Player
   </div>
-  <div id="yourLive" class="lifebar" :style="lifeBar(0)" >
-  {{player[0]}}
-  </div>
+
   <div class="lifebartitle">
   Monster
+  </div>
+
+
+</div>
+
+
+<div class="lifebars">
+  <div id="yourLive" class="lifebar" :style="lifeBar(0)" >
+  {{player[0]}}
   </div>
   <div id="monsterLife" class="lifebar" :style="lifeBar(1)">
   {{player[1]}}
