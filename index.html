@@ -13,13 +13,13 @@
   <div class="lifebartitle">
    Player
   </div>
-  <div id="yourLive" class="lifebar">
+  <div id="yourLive" class="lifebar" :style="lifeBar(0)" >
   {{player[0]}}
   </div>
   <div class="lifebartitle">
   Monster
   </div>
-  <div id="monsterLife" class="lifebar">
+  <div id="monsterLife" class="lifebar" :style="lifeBar(1)">
   {{player[1]}}
   </div>
 </div>

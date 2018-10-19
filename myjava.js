@@ -2,7 +2,7 @@
 new Vue({
   el:'#app',
   data:
-  {player:["100","100"],
+  {player:[100,100],
   showMenu:false,
   history:[],
   activities:["attacked","special attacked ","healed himself","gave up","restarted game","started game"],
@@ -11,6 +11,11 @@ new Vue({
 },
 
   methods:{
+
+    pw:function(player){
+      return {width:this.player[player]*3+"px"}
+    },
+
     showGameMenu:function(){
       this.showMenu=!this.showMenu;
     },
@@ -49,6 +54,10 @@ new Vue({
 
     playerAlive:function(player){
       return this.player[player]>0;
+    },
+
+    lifeBar:function(player){
+      return {width:this.player[player]*3+'px'}
     }
 
   }
